@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  image?: ImageMetadata;
+  borderRadius?: string;
+}
+
+const { image, borderRadius = "rounded-4xl" } = Astro.props;
+---
+
+<div class:list={[borderRadius, "bg-stone-50 aspect-video overflow-hidden"]}>
+  {image ? <Image src={image} alt="alt" width="600" /> : null}
+  <slot />
+</div>
