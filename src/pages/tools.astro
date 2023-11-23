@@ -1,0 +1,16 @@
+---
+import Layout from "~/components/layout/base.astro";
+
+import Card from "~/components/ui/card.astro";
+import Grid from "~/components/ui/grid.astro";
+
+import toolsList from "~/data/tools.ts";
+---
+
+<Layout>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <Grid>
+      {toolsList.map((tool) => <Card image={tool.image}>{tool.tag}</Card>)}
+    </Grid>
+  </div>
+</Layout>
