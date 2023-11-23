@@ -4,21 +4,21 @@ import Layout from "~/components/layout/base.astro";
 import Card from "~/components/ui/card.astro";
 import Grid from "~/components/ui/grid.astro";
 
-import cover from "~/assets/frame-3.png";
+import articleList from "~/data/articles.ts";
 ---
 
 <Layout>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <Grid>
-      <Card borderRadius="rounded-8xl">one</Card>
-      <Card>two</Card>
-      <Card>three</Card>
-      <Card>four</Card>
-      <Card>five</Card>
-      <Card>six</Card>
-      <Card>seven</Card>
-      <Card>eight</Card>
-      <Card>nine</Card>
+      {
+        articleList.map((article) => (
+          <Card image={article.image}>
+            <div class="h-full flex flex-col justify-end">
+              <p>{article.tag}</p>
+            </div>
+          </Card>
+        ))
+      }
     </Grid>
   </div>
 </Layout>
