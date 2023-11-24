@@ -14,18 +14,26 @@ const { image, borderRadius = "rounded-4xl" } = Astro.props;
 <div
   class:list={[
     borderRadius,
-    "bg-stone-200 aspect-[2/1] overflow-hidden relative p-8",
+    "group bg-stone-100 aspect-[2/1] overflow-hidden relative px-12 py-8 cursor-pointer",
   ]}
 >
   <Image
     src={image}
     alt="alt"
     width="600"
-    class="object-cover h-full grayscale opacity-70 absolute inset-0 z-0"
     quality="high"
+    class:list={[
+      "transition-opacity ease-in duration-300 opacity-0 group-hover:opacity-70",
+      "object-cover h-full grayscale absolute inset-0 z-0",
+    ]}
   />
 
-  <div class="relative z-1 h-full">
+  <div
+    class:list={[
+      "transition-opacity ease-in duration-300 opacity-100 group-hover:opacity-0",
+      "relative z-1 h-full",
+    ]}
+  >
     <slot />
   </div>
 </div>

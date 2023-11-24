@@ -9,16 +9,28 @@ import articleList from "~/data/articles.ts";
 
 <Layout>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <Grid>
-      {
-        articleList.map((article) => (
-          <Card image={article.image}>
-            <div class="h-full flex flex-col justify-end">
-              <p>{article.tag}</p>
-            </div>
-          </Card>
-        ))
-      }
-    </Grid>
+    <header class="my-8">
+      <Grid>
+        <p>Articles</p>
+        <h1 class="text-3xl font-playfair text-center">
+          Node Zebra <i>Wrapped</i>
+        </h1>
+        <p class="text-right">About</p>
+      </Grid>
+    </header>
+    <main>
+      <Grid>
+        {
+          articleList.map((article) => (
+            <Card image={article.image}>
+              <div class="h-full flex flex-col justify-between">
+                <p class="text-4xl font-playfair">{article.tag}</p>
+                <p class="[text-wrap:balance]">{article.title}</p>
+              </div>
+            </Card>
+          ))
+        }
+      </Grid>
+    </main>
   </div>
 </Layout>
