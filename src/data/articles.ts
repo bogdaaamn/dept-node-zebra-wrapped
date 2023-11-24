@@ -26,14 +26,13 @@ export default [
   },
   {
     tag: "02",
-    title: "Deep Cloning Objects in JavaScript, the Modern Way",
+    title: "Deep Cloning Objects in JavaScript",
     author: "Steve Sewell",
     image: image_article_02,
   },
   {
     tag: "03",
-    title:
-      "What is a Vector Database & How Does it Work? Use Cases + Examples | Pinecone",
+    title: "What is a Vector Database & How Does it Work?",
     author: "Roie Schwaber-Cohen",
     image: image_article_03,
   },
@@ -45,7 +44,7 @@ export default [
   },
   {
     tag: "05",
-    title: "Are clouds having their on-prem moment? - Stack Overflow",
+    title: "Are clouds having their on-prem moment?",
     author: "Ben Popper",
     image: image_article_05,
   },
@@ -57,14 +56,13 @@ export default [
   },
   {
     tag: "07",
-    title:
-      "The Safest Way To Hide Your API Keys When Using React — Smashing Magazine",
+    title: "The Safest Way To Hide Your API Keys When Using React",
     author: "Jessica Joseph",
     image: image_article_07,
   },
   {
     tag: "08",
-    title: "Running Promises In Parallel: A Visual Guide | JulesBlom.com",
+    title: "Running Promises In Parallel: A Visual Guide",
     author: "Jules Blom",
     image: image_article_08,
   },
