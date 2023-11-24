@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.astro"],
@@ -11,6 +13,10 @@ export default {
         "8xl": "4rem",
         "9xl": "4.5rem",
         "10xl": "5rem",
+      },
+      fontFamily: {
+        sans: ["MaisonNeueMG", ...defaultTheme.fontFamily.sans],
+        playfair: ["Playfair Display", ...defaultTheme.fontFamily.sans],
       },
     },
   },
