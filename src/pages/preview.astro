@@ -1,0 +1,20 @@
+---
+export const prerender = false;
+
+import Layout from "~/components/layout/base.astro";
+
+const url = Astro.url.searchParams.get("url");
+---
+
+<Layout>
+  <div
+    class="bg-stone-100 aspect-[2/1] overflow-hidden rounded-4xl border border-stone-200"
+  >
+    <iframe
+      class="w-full h-full"
+      src={url}
+      title={`Content iframe for the URL ${url}`}
+    >
+    </iframe>
+  </div>
+</Layout>
