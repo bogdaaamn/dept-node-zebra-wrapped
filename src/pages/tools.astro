@@ -8,9 +8,18 @@ import toolsList from "~/data/tools.ts";
 ---
 
 <Layout>
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <Grid>
-      {toolsList.map((tool) => <Card image={tool.image}>{tool.tag}</Card>)}
-    </Grid>
-  </div>
+  <Grid>
+    {
+      toolsList.map((tool) => (
+        <Card image={tool.image}>
+          <a href={`/preview?url=${encodeURIComponent(tool.url).toString()}`}>
+            <div class="h-full flex flex-col justify-between">
+              <p class="text-4xl font-playfair">{tool.tag}</p>
+              <p class="[text-wrap:balance]">{tool.title}</p>
+            </div>
+          </a>
+        </Card>
+      ))
+    }
+  </Grid>
 </Layout>

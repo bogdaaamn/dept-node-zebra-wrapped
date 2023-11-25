@@ -4,17 +4,49 @@ export const prerender = false;
 import Layout from "~/components/layout/base.astro";
 
 const url = Astro.url.searchParams.get("url");
+
+// Set error state for the iframe loading
+let error = false;
+
+if (!url) {
+  return Astro.redirect("/");
+} else {
+  const response = await fetch(url, { method: "HEAD" });
+
+  const blockedHeader = response.headers.get("X-Frame-Options");
+  if (blockedHeader) {
+    error = true;
+  }
+}
 ---
 
 <Layout>
   <div
     class="bg-stone-100 aspect-[2/1] overflow-hidden rounded-4xl border border-stone-200"
   >
-    <iframe
-      class="w-full h-full"
-      src={url}
-      title={`Content iframe for the URL ${url}`}
-    >
-    </iframe>
+    {
+      error ? (
+        <div class="flex flex-col items-center justify-center h-full text-center">
+          <p class="text-3xl font-bold font-playfair">Oops!</p>
+          <p class="mt-4 font-light">
+            This site prevents us from embedding it.{" "}
+            <a
+              href={url}
+              class="border-b border-stone-400 "
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open this site in a new tab.
+            </a>
+          </p>
+        </div>
+      ) : (
+        <iframe
+          class="w-full h-full"
+          src={url}
+          title={`Content iframe for the URL ${url}`}
+        />
+      )
+    }
   </div>
 </Layout>
