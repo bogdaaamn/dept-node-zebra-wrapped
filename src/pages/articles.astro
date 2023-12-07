@@ -11,7 +11,7 @@ import articleList from "~/data/articles.ts";
   <Grid>
     {
       articleList.map((article) => (
-        <Card image={article.image}>
+        <Card title={article.title} image={article.image}>
           <a
             href={`/preview?url=${encodeURIComponent(article.url).toString()}`}
           >

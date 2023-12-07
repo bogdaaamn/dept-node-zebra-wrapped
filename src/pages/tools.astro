@@ -11,7 +11,7 @@ import toolsList from "~/data/tools.ts";
   <Grid>
     {
       toolsList.map((tool) => (
-        <Card image={tool.image}>
+        <Card title={tool.title} image={tool.image}>
           <a href={`/preview?url=${encodeURIComponent(tool.url).toString()}`}>
             <div class="h-full flex flex-col justify-between">
               <p class="text-4xl font-playfair">{tool.tag}</p>
