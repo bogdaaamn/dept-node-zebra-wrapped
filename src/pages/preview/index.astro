@@ -36,18 +36,19 @@ if (!url) {
             <p class="text-3xl font-bold font-playfair">Oops!</p>
             <p class="mt-4 font-light">
               This site prevents us from embedding it.
-              {url ? (
-                <a
-                  href={url}
-                  class="border-b border-stone-400 "
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {" "}
-                  Open this site in a new tab ↗
-                </a>
-              ) : null}
             </p>
+
+            {url ? (
+              <a
+                href={url}
+                class=" mt-2 font-light"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {" "}
+                Open this site in a new tab ↗
+              </a>
+            ) : null}
           </div>
         ) : (
           <iframe
