@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 import Header from "~/components/ui/header.astro";
 ---
 
@@ -45,13 +47,14 @@ import Header from "~/components/ui/header.astro";
           U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
     </style>
+    <ViewTransitions />
   </head>
   <body
     class="h-screen flex flex-col lg:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
   >
     <Header />
 
-    <main class="flex-1 py-4">
+    <main class="flex-1 py-4" transition:animate="slide">
       <slot />
     </main>
   </body>
