@@ -17,7 +17,9 @@ import articleList from "~/data/articles.ts";
           >
             <div class="h-full flex flex-col justify-between">
               <p class="text-4xl font-playfair">{article.tag}</p>
-              <p class="[text-wrap:balance]">{article.title}</p>
+              <p class="[text-wrap:balance] sm:text-base md:text-xs lg:text-base">
+                {article.title}
+              </p>
             </div>
           </a>
         </Card>
