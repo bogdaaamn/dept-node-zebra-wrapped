@@ -1,19 +1,24 @@
 ---
-export const prerender = false;
-
 import Layout from "~/components/layout/base.astro";
 
+// Render this route server-side only
+// So we don't statically generate a bunch of iframes
+export const prerender = false;
+
+// Get the URL from the query string
 const url = Astro.url.searchParams.get("url");
 
 // Set error state for the iframe loading
 let error = false;
 
 if (!url) {
-  return Astro.redirect("/");
+  error = true;
 } else {
+  // Fetch the headers of the URL to check if frames are allowed
   const response = await fetch(url, { method: "HEAD" });
-
   const blockedHeader = response.headers.get("X-Frame-Options");
+
+  // If the header is set, we can't embed the site
   if (blockedHeader) {
     error = true;
   }
@@ -30,14 +35,16 @@ if (!url) {
           <p class="text-3xl font-bold font-playfair">Oops!</p>
           <p class="mt-4 font-light">
             This site prevents us from embedding it.{" "}
-            <a
-              href={url}
-              class="border-b border-stone-400 "
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open this site in a new tab.
-            </a>
+            {url ? (
+              <a
+                href={url}
+                class="border-b border-stone-400 "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Open this site in a new tab ↗
+              </a>
+            ) : null}
           </p>
         </div>
       ) : (
@@ -49,4 +56,19 @@ if (!url) {
       )
     }
   </div>
+
+  {
+    !error ? (
+      <div class="block text-center mt-4">
+        <a
+          href={url}
+          class="font-light"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open this site in a new tab ↗
+        </a>
+      </div>
+    ) : null
+  }
 </Layout>
