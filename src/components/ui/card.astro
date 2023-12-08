@@ -16,7 +16,7 @@ const { title, image, borderRadius = "rounded-4xl" } = Astro.props;
   class:list={[
     borderRadius,
     "group bg-stone-100 aspect-[2/1] overflow-hidden relative cursor-pointer",
-    "px-12 py-8 md:px-8 md:py-4 lg:px-12 lg:py-8",
+    "px-12 py-8 md:px-8 md:py-4 lg:px-12 lg:py-8 flex",
   ]}
 >
   <Image
@@ -33,7 +33,7 @@ const { title, image, borderRadius = "rounded-4xl" } = Astro.props;
   <div
     class:list={[
       "transition-opacity ease-in duration-300 opacity-100 group-hover:opacity-0",
-      "relative h-full",
+      "relative flex",
     ]}
   >
     <slot />
