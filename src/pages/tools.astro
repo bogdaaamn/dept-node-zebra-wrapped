@@ -11,14 +11,14 @@ import toolsList from "~/data/tools.ts";
   <Grid>
     {
       toolsList.map((tool) => (
-        <Card title={tool.title} image={tool.image}>
-          <a href={`/preview?url=${encodeURIComponent(tool.url).toString()}`}>
+        <a href={`/preview?url=${encodeURIComponent(tool.url).toString()}`}>
+          <Card title={tool.title} image={tool.image}>
             <div class="h-full flex flex-col justify-between">
               <p class="text-4xl font-playfair">{tool.tag}</p>
               <p class="[text-wrap:balance]">{tool.title}</p>
             </div>
-          </a>
-        </Card>
+          </Card>
+        </a>
       ))
     }
   </Grid>
