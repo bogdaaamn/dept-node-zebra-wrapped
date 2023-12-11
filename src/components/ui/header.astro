@@ -1,45 +1,21 @@
----
-// Default link data is articles
-// If someone navigates to /preview outside of navigation
-// It will default to articles
-const link = {
-  url: "/articles",
-  text: "Articles",
-};
+<header class="pt-8 pb-2" transition:persist>
+  <span class="text-3xl md:text-2xl lg:text-3xl font-playfair text-center">
+    <h1 class="pb-2">
+      <a href="/" data-astro-reload>Node Zebra <i>Wrapped</i></a>
+    </h1>
+  </span>
 
-const currentPath = Astro.url.pathname;
+  <div class="flex gap-4 justify-center">
+    <a href="/articles" data-astro-reload>Articles</a>
 
-// When on the tools page, change the link to articles
-// Because the header presists across navigation,
-// It will stay the same when navigating to previews
-// When navigating back internally, astro will "data-astro-reload"
-if (currentPath === "/articles") {
-  link.url = "/tools";
-  link.text = "Tools";
-}
----
+    <a href="/tools" data-astro-reload>Tools</a>
 
-<header class="pt-8 pb-4" transition:persist>
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 items-center">
-    <span class="text-right md:text-left">
-      <a href={link.url} data-astro-reload>{link.text}</a>
-    </span>
-    <span
-      class="text-3xl md:text-2xl lg:text-3xl font-playfair text-center order-first col-span-2 md:order-none md:col-span-1"
+    <a
+      href="https://dept-node-zebra.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      <h1>
-        <a href="/" data-astro-reload>Node Zebra <i>Wrapped</i></a>
-      </h1>
-    </span>
-
-    <span class="text-left md:text-right">
-      <a
-        href="https://dept-node-zebra.vercel.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        About ↗
-      </a>
-    </span>
+      About ↗
+    </a>
   </div>
 </header>
